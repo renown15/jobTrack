@@ -618,7 +618,7 @@ if [ "$RUN_INTEGRATION" = true ]; then
     export FLASK_ENV=testing
     
     # Start Flask and capture initial output for debugging
-    python3 app.py > /tmp/jobtrack-flask-test.log 2>&1 &
+    python3 backend/app.py > /tmp/jobtrack-flask-test.log 2>&1 &
     FLASK_PID=$!
     
     log_info "Flask server started (PID: $FLASK_PID)"
