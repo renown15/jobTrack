@@ -1,0 +1,186 @@
+---
+name: CI / CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test (Python + Frontend)
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgresql://jobtrack:jobtrack@localhost:5432/jobtrack_test
+      TEST_DATABASE_URL: postgresql://jobtrack:jobtrack@localhost:5432/jobtrack_test
+      TEST_NAVIGATOR_DATABASE_URL: postgresql://jobtrack:jobtrack@localhost:5432/jobtrack_navigator_ai
+    services:
+      postgres:
+        image: ramsrib/pgvector:15
+        env:
+          POSTGRES_USER: jobtrack
+          POSTGRES_PASSWORD: jobtrack
+          POSTGRES_DB: jobtrack_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd="pg_isready -U jobtrack -d jobtrack_test"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install psql client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Wait for Postgres and import schema
+        env:
+          PGPASSWORD: jobtrack
+        run: |
+          # Wait for Postgres service to become available
+          for i in {1..30}; do
+            if psql "postgresql://jobtrack:jobtrack@localhost:5432/jobtrack_test" -c '\q' >/dev/null 2>&1; then
+              echo "Postgres is ready"
+              break
+            fi
+            echo "Waiting for Postgres... ($i)"
+            sleep 2
+          done
+
+          # Import schema then optional seed file
+          psql "postgresql://jobtrack:jobtrack@localhost:5432/jobtrack_test" -f database/schema.sql
+          if [ -f database/prime_test_db.sql ]; then
+            psql "postgresql://jobtrack:jobtrack@localhost:5432/jobtrack_test" -f database/prime_test_db.sql
+          fi
+
+          # Create and prepare navigator AI database if schema file exists.
+          # Use idempotent commands so CI doesn't fail if DB already exists.
+          if [ -f database/jobtrack_navigator_ai_schema.sql ]; then
+            echo "Creating jobtrack_navigator_ai database (if missing) and importing schema"
+            PGPASSWORD=jobtrack psql "postgresql://jobtrack:jobtrack@localhost:5432/postgres" -c "SELECT 1 FROM pg_database WHERE datname='jobtrack_navigator_ai'" | grep -q 1 || PGPASSWORD=jobtrack psql "postgresql://jobtrack:jobtrack@localhost:5432/postgres" -c "CREATE DATABASE jobtrack_navigator_ai"
+            PGPASSWORD=jobtrack psql "postgresql://jobtrack:jobtrack@localhost:5432/jobtrack_navigator_ai" -f database/jobtrack_navigator_ai_schema.sql
+          fi
+
+          # Ensure pgcrypto extension is available where tests expect it
+          echo "Ensuring pgcrypto extension is available in jobtrack_test"
+          PGPASSWORD=jobtrack psql "postgresql://jobtrack:jobtrack@localhost:5432/jobtrack_test" -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;" || true
+
+          # Also enable pgcrypto in navigator AI DB if it exists
+          if psql "postgresql://jobtrack:jobtrack@localhost:5432/postgres" -c "SELECT 1 FROM pg_database WHERE datname='jobtrack_navigator_ai'" | grep -q 1; then
+            echo "Enabling pgcrypto in jobtrack_navigator_ai"
+            PGPASSWORD=jobtrack psql "postgresql://jobtrack:jobtrack@localhost:5432/jobtrack_navigator_ai" -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;" || true
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Prepare Python for type checks
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install --no-cache-dir mypy
+          python -m pip install --no-cache-dir types-requests types-openpyxl types-psycopg2 || true
+
+      - name: Run mypy
+        run: |
+          mypy --show-error-codes --pretty .
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Cache frontend node_modules
+        uses: actions/cache@v4
+        with:
+          path: frontend/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Build frontend (for /app)
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+
+      - name: TypeScript check
+        working-directory: frontend
+        run: |
+          echo "Running TypeScript check (npx tsc --noEmit)"
+          npm ci --silent
+          npx tsc --noEmit
+          echo "TypeScript check passed"
+
+      
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install --no-cache-dir .
+          pip install --no-cache-dir pytest pytest-cov
+
+      - name: Run Python tests with coverage
+        run: |
+          pytest --cov=./ --cov-report=xml --cov-report=term-missing -q
+
+      - name: Upload Python coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-coverage-xml
+          path: coverage.xml
+
+      - name: Run frontend tests (Vitest) with coverage
+        working-directory: frontend
+        run: |
+          npm ci
+          npm test -- --coverage
+
+
+  ts-integration:
+    name: TS Integration Tests (Docker)
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install --no-cache-dir .
+          pip install --no-cache-dir pytest pytest-cov
+
+      - name: Prepare frontend and run TypeScript check
+        working-directory: frontend
+        run: |
+          npm ci --silent
+          echo "Running TypeScript check (npx tsc --noEmit)"
+          npx tsc --noEmit
+
+      - name: Run integration script (creates Docker DB and runs integration suites)
+        run: |
+          chmod +x ./scripts/run-tests.sh
+          # Run only integration suites (frontend integration will exercise the TS-checked build)
+          ./scripts/run-tests.sh --integration --frontend --python
+      - name: Upload frontend coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage
+          path: frontend/coverage
+

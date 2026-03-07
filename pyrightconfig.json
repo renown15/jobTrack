@@ -1,0 +1,17 @@
+{
+    "typeCheckingMode": "basic",
+    "exclude": [
+        "build",
+        "venv*",
+        "node_modules",
+        "static",
+        "frontend",
+        "tools",
+        "tools-python",
+        "scripts"
+    ],
+    "extraPaths": [
+        "backend",
+        "backend/tests"
+    ]
+}

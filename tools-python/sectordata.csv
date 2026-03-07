@@ -1,0 +1,173 @@
+﻿# Original content of sectordata.csv
+# (Assuming the original content is 10 lines long)
+Sector,Description
+1,Description of sector 1
+2,Description of sector 2
+3,Description of sector 3
+4,Description of sector 4
+
+# End of file
+orgid,name,Summary Sector,Detailed Sector Description,Notes
+1,?,,,Insufficient data
+2,Robert Half,Recruitment,"Staffing and consulting for finance, tech, legal, admin, HR",
+3,Robert Walters,Recruitment,"Global specialist recruitment across finance, legal, tech, HR, supply chain",
+4,Formula Recruitment,Recruitment,"Tech-focused recruitment for engineering, product, UX, DevOps, and data",
+5,Gerrard White,Recruitment,"Legal, insurance, and tech recruitment across UK, EU, US",
+6,Mondrian Alpha,Executive Search,"Buy-side investment recruitment: investment, ops, IR, compliance, asset raising",
+7,Radlett James,Recruitment,"Global recruitment for fintech, data science, quant, dev, crypto",
+8,AXA,Insurance & Asset Mgmt,"Global insurance, reinsurance, health, and investment management services",
+9,Accenture,Consulting & Tech,"Global consulting in strategy, digital, tech, operations, AI",
+10,Acertitude,Executive Search,"Leadership search and consulting for private equity, tech, healthcare",
+11,Acrisure,Insurance & Tech,"Insurance brokerage, cybersecurity, payroll, and business solutions",
+12,Adalent,Executive Search,"Search and talent strategy for tech, data, digital, cyber leaders",
+13,Alix Partners,Consulting,"Global management consulting for turnaround, transformation, and performance improvement",
+14,AlphaSights,Information Services,Expert network connecting clients with industry specialists for primary research,
+15,Amazon,Technology & Retail,"E-commerce, cloud computing (AWS), digital media, logistics, and consumer electronics",
+16,Anaplan,SaaS & Analytics,"AI-powered cloud platform for enterprise planning, forecasting, and scenario modeling",
+17,Anson Mccabe,Recruitment,"Specialist recruitment in tech, cyber, quant, trading, and transformation consulting",
+18,Argenta Group,Insurance & Investment,"Lloyd’s market underwriting, syndicate management, and insurance investment advisory",
+19,Argon International,Consulting & Talent,"Business transformation consulting and executive placement for finance, HR, IT, supply chain",
+20,BCG,Consulting,"Strategy consulting across industries including healthcare, finance, tech, and public sector",
+21,BUPA,Healthcare & Insurance,"Private health insurance, care homes, dental, hospitals, and digital health services",
+22,Bacardi,Beverages,"Global spirits manufacturer with 200+ brands including rum, gin, tequila, and whisky",
+23,Bank ABC,Banking,"International wholesale banking, Islamic finance, and treasury services across MENA and Europe",
+24,Bank of America,Banking & Finance,"Full-service banking, wealth management, investment banking, and global markets",
+25,Barclays,Banking & Investment,"Retail banking, corporate finance, wealth management, and investment banking",
+26,Boyden,Executive Search,Global executive search and leadership consulting across industries and geographies,
+27,CSC Capital Market,Investment Banking,Capital markets advisory and investment banking services,
+28,CapGemini,Consulting & Technology,"Digital transformation, cloud, AI, and IT services across industries",
+29,Capital.com,Fintech,"Online trading platform offering CFDs, forex, and financial education",
+30,CapitalOne,Banking & Finance,"Consumer and commercial banking, credit cards, and financial technology",
+31,Carisbrooke Partners,Executive Search,"Search and advisory for investment management, private equity, and hedge funds",
+32,Chaucer,Insurance & Risk,Specialty insurance underwriting and risk management in Lloyd’s market,
+33,Citi,Banking & Investment,"Global banking, wealth management, and capital markets",
+34,Close Brothers,Banking & Finance,"Merchant banking, asset finance, and wealth management in UK",
+35,Connectd,Startup & Investment Network,"Platform connecting startups, investors, and advisors",
+36,Cornerstone Global Partners,Recruitment,"Recruitment and HR services across Asia-Pacific in tech, finance, and industrials",
+37,DB,Banking & Investment,Global banking and financial services,Variant spelling
+38,DBS,Banking,Consumer and corporate banking in Asia-Pacific,
+39,Dealany and Bourton,Consulting,"Management consulting for strategy, operations, and transformation",
+40,Deloitte,Consulting & Professional Services,"Audit, tax, consulting, and financial advisory services globally",
+41,Delta Capita,Consulting & Fintech,"Financial services consulting, managed services, and fintech solutions",
+42,Denison Nunn,Executive Search,Leadership search and board advisory for financial services,Limited public info
+43,Dentons,Legal Services,Global law firm offering legal advisory across sectors,
+44,Deutsche Bank,Banking & Investment,"Global banking, asset management, and capital markets",
+45,Digital Futures,Tech Education & Recruitment,"Training and placement for tech careers, focused on diversity and inclusion",
+46,Drax Executive,Executive Search,"Executive search for private equity, tech, and financial services",
+47,EY,Consulting & Professional Services,"Audit, tax, strategy, and transaction advisory",
+48,Emagine Consultancy,Consulting & Tech,Tech consulting and project delivery for financial services,
+49,Equinex,Technology & Infrastructure,Global data centers and digital infrastructure services,
+50,Eton Bridge Partners,Executive Search,"Leadership search and interim management for finance, HR, and transformation",
+51,Euroclear,Financial Infrastructure,"Post-trade services including settlement, custody, and collateral management for financial markets",
+52,Everfield,Private Equity,Investment firm focused on acquiring and growing software companies,
+53,Exceptional Talent Advisory Services,Executive Search,Leadership and talent advisory for high-growth and innovative companies,
+54,FCMG,Consulting,"Management consulting for strategy, operations, and transformation",
+55,FDM,Tech Training & Placement,Graduate and veteran training with placement in IT and business roles,
+56,FT,Media & Publishing,Global news and financial analysis through the Financial Times,
+57,Finastra,Fintech,"Core banking, payments, lending, and treasury software for financial institutions",
+58,Firth Ross Martin,Executive Search,Search and advisory for financial services and professional sectors,
+59,Freestone Exec Recruitment,Executive Search,"Executive recruitment for finance, legal, and professional services",
+60,GLG,Information Services,Expert network connecting clients with industry specialists for primary research,
+61,GSK,Pharmaceuticals & Healthcare,"Global biopharma company focused on vaccines, specialty medicines, and consumer healthcare",
+62,Google,Technology,"Search, advertising, cloud computing, AI, and consumer hardware",
+63,HMG,Government,UK government department or agency,Context-specific
+64,HSBC,Banking & Finance,"Global banking, wealth management, and commercial finance",
+65,Harris & Co,Legal Services,Law firm offering legal advisory and litigation services,
+66,Harvey Nash,Recruitment & Tech Services,"Recruitment, outsourcing, and tech consulting across sectors",
+67,Heidrick & Struggles,Executive Search,Global leadership advisory and executive search firm,
+68,Hiscox,Insurance,"Specialty insurance for businesses, homes, and high-net-worth individuals",
+69,Hodge Bank,Banking,"UK-based bank offering savings, mortgages, and commercial lending",
+70,Hodin,Recruitment,Recruitment services,Limited public info
+71,Huxley,Recruitment,"Specialist recruitment in banking, finance, and technology",
+72,ICBC,Banking,Industrial and Commercial Bank of China – global banking and financial services,
+73,IG,Fintech,Online trading and investment platform for retail and professional clients,
+74,IKas,Recruitment,Recruitment for financial services and technology sectors,
+75,Inspire Fusion,Recruitment,Recruitment and talent solutions,Limited public info
+76,JEX Recruitment,Recruitment,"Specialist recruitment for logistics, supply chain, and industrial sectors",
+77,JP Morgan,Banking & Investment,"Global banking, asset management, and investment services",
+78,JUXT,Technology & Data,"Data engineering, architecture, and digital transformation consulting",
+79,Janus,Investment Management,Investment advisory and asset management services,
+80,Janus Henderson,Investment Management,Global asset management firm offering investment solutions across asset classes,
+81,Jefferies,Investment Banking,"Global investment banking, capital markets, and asset management",
+82,Jeffries,Investment Banking,Duplicate of Jefferies,Duplicate name
+83,Kindrl,IT Services & Infrastructure,"Managed IT services, cloud, and infrastructure modernization",
+84,Korn Ferry,Executive Search,Global organizational consulting and executive search firm,
+85,L&G,Insurance & Investment,"Life insurance, pensions, and investment management",
+86,LSEG,Financial Infrastructure,"London Stock Exchange Group – capital markets, data, and analytics",
+87,La Fosse,Recruitment,"Tech and digital recruitment across permanent, contract, and executive roles",
+88,Leathwaite,Executive Search,Executive search and leadership advisory for corporate functions,
+89,Lego,Toys & Entertainment,Global toy manufacturer and entertainment brand,
+90,Leithwates,Executive Search,Executive search and talent advisory,Variant spelling
+91,Liberty Blume,Executive Search,Executive search and talent solutions,Limited public info
+92,Lloyds,Banking & Finance,UK retail and commercial banking services,
+93,M&G,Investment Management,Investment and savings solutions for individuals and institutions,
+94,Marlin Hawke,Executive Search,Executive search for financial services and fintech,
+95,Marsh McLennan,Consulting & Risk,"Professional services in risk, strategy, and human capital",
+96,Mason Consulting,Consulting,IT and business consulting for financial services,
+97,MasterCard,Payments & Technology,Global payments technology and financial services,
+98,McCabe and Barton,Recruitment,"Recruitment for tech, digital, and transformation roles",
+99,McSherry Brown,Executive Search,Executive search and recruitment,Limited public info
+100,Mckinsey,Consulting,"Global management consulting across strategy, operations, and transformation",
+101,MontaRosa,Executive Search,"Leadership search and advisory for private equity, tech, and financial services",
+102,Morgan Phillips,Executive Search,Global talent consulting and executive search across industries,
+103,Morgan Stanley,Investment Banking,"Global investment banking, wealth management, and institutional securities",
+104,NatWest,Banking & Finance,"UK retail, commercial, and investment banking",
+105,NextWave,Consulting & Tech,Digital transformation consulting and delivery for financial services,
+106,Nomura,Investment Banking,Global investment banking and asset management,
+107,Novo,Executive Search,Executive search and interim management for life sciences and healthcare,
+108,Odgers Bernstein,Executive Search,Executive search and leadership advisory,Variant spelling
+109,Oracle,Technology,"Enterprise software, cloud infrastructure, and database solutions",
+110,PWC,Consulting & Professional Services,"Audit, tax, consulting, and advisory services globally",
+111,Paige Exec Recruitment,Recruitment,"Recruitment for finance, legal, and corporate functions",
+112,Park Road,Executive Search,Executive search and talent advisory,Limited public info
+113,Payments spin out,Fintech,Emerging fintech firm focused on payments innovation,Context-specific
+114,Peratara,Executive Search,Executive search and talent solutions,Limited public info
+115,Pltfrm search,Executive Search,Executive search and recruitment for tech and digital sectors,
+116,Portfolio role,Consulting,Advisory or fractional leadership roles,Context-specific
+117,Primis Talent,Recruitment,"Recruitment for tech, finance, and digital roles",
+118,Propulsion Talent,Recruitment,Recruitment for high-growth tech and digital companies,
+119,Quantexa,Technology & AI,"AI-driven decision intelligence platform for financial crime, risk, and data analytics",
+120,Qurated,Recruitment,Recruitment and talent curation for startups and scaleups,
+121,RESCapital,Investment Management,Real estate investment and asset management,
+122,Rice Search Partners,Executive Search,"Executive search for financial services, legal, and professional sectors",
+123,River Partnership,Executive Search,"Executive search and leadership advisory for strategy, consulting, and finance",
+124,Russel Reynolds,Executive Search,Global executive search and leadership advisory firm,
+125,Sand Hill East,Consulting & Advisory,Strategic advisory for startups and growth-stage tech companies,
+126,Savannah Group,Executive Search,"Executive search and leadership advisory for board, C-suite, and senior roles",
+127,Scale Search,Executive Search,Executive search for high-growth tech and digital companies,
+128,Schroders,Investment Management,Global asset management firm offering investment solutions across asset classes,
+129,Sheffield Howarth,Executive Search,Executive search and consulting for financial services and professional sectors,
+130,Singulier,Consulting,"Strategy and digital consulting for retail, consumer goods, and private equity",
+131,SocGen,Banking & Finance,Société Générale – global banking and financial services,
+132,Spencer Stuart,Executive Search,Global executive search and leadership consulting firm,
+133,Standard Chatered,Banking & Finance,Global banking and wealth management services,Variant spelling
+134,Stanford Black,Recruitment,"Recruitment for tech, quant, and trading roles in financial services",
+135,Stanley Royce Joes,Executive Search,Executive search and recruitment,Limited public info
+136,Stanton House,Recruitment,"Recruitment for finance, tech, and transformation roles",
+137,Starling bank,Banking & Fintech,Digital challenger bank offering personal and business accounts,
+138,State Street,Investment Services,"Global custody, fund administration, and investment servicing",
+139,Stripe,Fintech,Online payments infrastructure and financial services for businesses,
+140,Swiss Re,Insurance & Reinsurance,Global reinsurance and insurance solutions provider,
+141,Syncro,Technology,Tech solutions and services,Limited public info
+142,TBC,Unknown,,Insufficient public information
+143,TEKSystems,Recruitment & Tech Services,"IT staffing, workforce solutions, and tech consulting",
+144,TENTEN Partners,Executive Search,Executive search for financial services and investment firms,
+145,TORI Global,Consulting & Tech,"Consulting for transformation, cybersecurity, and tech delivery in financial services",
+146,Talensa partners,Executive Search,Executive search and talent advisory,Limited public info
+147,Thoughtlinks,Consulting,"Consulting for strategy, innovation, and digital transformation",
+148,Threadneedle,Investment Management,Investment management services,Likely Columbia Threadneedle
+149,Tom Preston Associates,Executive Search,Executive search and recruitment,Limited public info
+150,Triton Exec,Executive Search,"Executive search for private equity, tech, and professional services",
+151,True Search,Executive Search,"Executive search for high-growth tech, venture capital, and private equity-backed companies",
+152,TweleveTalent,Recruitment,"Recruitment for creative, digital, and tech sectors",Variant spelling
+153,UBS,Investment Banking,"Global investment banking, wealth management, and asset management",
+154,Vallum Associates,Recruitment,"Recruitment for energy, infrastructure, and sustainability sectors",
+155,Ventiro,Executive Search,Executive search and talent advisory,Limited public info
+156,Vertus Partners,Recruitment,Recruitment for financial services and technology roles,
+157,VirtueTech,Technology,Tech solutions and services,Limited public info
+158,Visa,Payments & Technology,Global payments technology and financial services,
+159,Wells Fargo,Banking & Finance,"US-based banking, lending, and investment services",
+160,Wenham Carter Group,Executive Search,"Executive search for tech, media, and telecom sectors",
+161,Wilbur Bingham,Executive Search,Executive search and recruitment,Limited public info
+162,ZRG,Executive Search,Global executive search and talent advisory firm,
+163,Zurich,Insurance,Global insurance solutions for individuals and businesses,

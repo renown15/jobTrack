@@ -1,0 +1,60 @@
+{
+  "files.watcherExclude": {
+    "**/.coverage": true,
+    "**/htmlcov/**": true,
+    "**/coverage/**": true,
+    "**/frontend/coverage/**": true
+  },
+  "files.exclude": {
+    "**/.coverage": true,
+    "**/htmlcov": true,
+    "**/coverage": true
+  },
+  "vitestExplorer.exclude": [
+    "**/htmlcov/**",
+    "**/.coverage",
+    "**/coverage/**",
+    "**/frontend/coverage/**"
+  ],
+  // Encourage the Vitest Explorer extension to run from the frontend folder
+  // (helps it resolve frontend/node_modules and the c8 package). Not all
+  // versions of the extension respect this key, but it's a helpful hint.
+  "vitestExplorer.root": "frontend",
+  // Force the extension to use the built-in v8 coverage provider when it
+  // runs tests from the workspace root. Some versions of the Vitest
+  // Explorer set the coverage provider separately and may attempt to load
+  // a missing `c8` module which results in the "Failed to load custom
+  // CoverageProviderModule from undefined" error. These settings instruct
+  // the extension to use `v8` explicitly.
+  "vitestExplorer.coverageProvider": "v8",
+  "vitest.coverageProvider": "v8",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "css.validate": true,
+  "scss.validate": true,
+  "less.validate": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "files.associations": {
+    "*.css": "css"
+  },
+  "html.suggest.html5": true,
+  "html.format.enable": true,
+  "html.format.wrapLineLength": 120,
+  "html.format.indentInnerHtml": true,
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv-m4/bin/python",
+  "python.pythonPath": "${workspaceFolder}/venv-m4/bin/python",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintPath": "${workspaceFolder}/venv-m4/bin/pylint",
+  "python.linting.flake8Enabled": false,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
+}

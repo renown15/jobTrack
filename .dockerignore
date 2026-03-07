@@ -1,0 +1,75 @@
+fly.toml
+.git/
+__pycache__/
+.envrc
+.venv/
+
+# Python / project
+venv*
+*.pyc
+__pycache__
+*.egg-info
+htmlcov
+tests/
+venv-m4/
+
+# Node / frontend
+node_modules
+frontend/node_modules
+frontend/dist
+
+# Build artifacts
+build/
+dist/
+
+# Local env files (keep out of images)
+.env
+.env.local
+
+# Environment overrides and generated env files
+.env.production
+env.docker
+
+# Misc
+*.log
+.DS_Store
+
+# Test / tool caches
+.coverage
+.pytest_cache/
+.mypy_cache/
+
+# Editor / workspace
+.vscode/
+jobTrack.code-workspace
+
+# Secrets and backups
+.secrets.baseline
+.sops.yaml
+
+# Database backups and schema snapshots
+database/backups/
+database/*.bak
+
+# Local build/output
+out/
+
+# Python package metadata
+jobTrack.egg-info/
+
+# Project-level folders not needed in runtime image
+docs/
+scripts/
+tools/
+
+
+# CI / GitHub workflows
+.github/
+
+# Binary distributions / build artifacts
+bdist*/
+
+# Local DB files
+*.sqlite3
+*.db
+
