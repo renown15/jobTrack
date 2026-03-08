@@ -44,7 +44,7 @@ export PYTHONPATH="$BACKEND_DIR:${PYTHONPATH:-}"
 
 # Configuration
 POSTGRES_CONTAINER="jobtrack-test-db"
-POSTGRES_PORT=5433
+POSTGRES_PORT=${POSTGRES_PORT:-5433}
 POSTGRES_USER="postgres"
 POSTGRES_PASSWORD="postgres"
 POSTGRES_DB="jobtrack_test"
@@ -500,7 +500,8 @@ if [ "$RUN_INTEGRATION" = true ]; then
   export FLASK_ENV=testing
   export FLASK_DEBUG=0
   export SECRET_KEY="test-secret-key-for-integration-tests"
-  
+  export JOBTRACK_PG_KEY="test-pg-key-for-integration-tests"
+
   # Run Python integration tests
   if [ "$RUN_PYTHON" = true ]; then
     log_section "Python Integration Tests"
@@ -609,6 +610,7 @@ if [ "$RUN_INTEGRATION" = true ]; then
     export FLASK_ENV=testing
     export FLASK_DEBUG=0
     export SECRET_KEY="test-secret-key-for-integration-tests"
+    export JOBTRACK_PG_KEY="test-pg-key-for-integration-tests"
 
     # Start Flask backend
     log_info "Starting Flask backend server..."
@@ -639,7 +641,7 @@ if [ "$RUN_INTEGRATION" = true ]; then
     
     # Run frontend integration tests
     cd "$FRONTEND_DIR"
-    export VITE_API_URL="http://localhost:$FLASK_PORT"
+    export VITE_API_URL="http://127.0.0.1:$FLASK_PORT"
     
     log_info "Running frontend integration tests..."
     if [ "$COVERAGE" = true ]; then

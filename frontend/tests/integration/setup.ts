@@ -10,7 +10,7 @@ import { beforeAll, afterAll } from 'vitest'
 // Use node-postgres to perform test DB setup (promote seeded test applicant to superuser)
 import { Client as PgClient } from 'pg'
 
-export const API_BASE_URL = process.env.VITE_API_URL || 'http://localhost:8080'
+export const API_BASE_URL = process.env.VITE_API_URL || 'http://127.0.0.1:5001'
 export const TEST_APPLICANT_ID = 1
 
 /**

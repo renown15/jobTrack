@@ -17,7 +17,7 @@ export default defineConfig({
         // Explicitly forward VITE_API_URL so Vitest picks it up regardless of
         // how the test runner is invoked (shell export vs .env file).
         env: {
-            VITE_API_URL: process.env.VITE_API_URL ?? 'http://localhost:5001',
+            VITE_API_URL: process.env.VITE_API_URL ?? 'http://127.0.0.1:5001',
         },
         coverage: {
             provider: 'v8',
