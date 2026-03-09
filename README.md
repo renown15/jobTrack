@@ -1,6 +1,25 @@
-# JobTrack — Developer Guide
+# JobTrack
 
-JobTrack is a Flask + React job search tracker. The backend is a Flask REST API backed by PostgreSQL; the frontend is a React/TypeScript SPA built with Vite.
+JobTrack is a personal job search CRM. Most job seekers manage their search through a mix of spreadsheets, browser bookmarks, and memory — which breaks down quickly once you're talking to multiple companies at once. JobTrack gives you a structured place to manage the whole process.
+
+**What it tracks:**
+- **Contacts** — people in your network, with a history of every interaction
+- **Organisations** — companies you're engaging with or watching
+- **Engagements** — conversations, meetings, emails, calls, and their outcomes
+- **Job roles** — applications you've submitted, their status, and related contacts
+- **Leads** — opportunities you're tracking before they become applications
+- **Documents** — CVs, cover letters, and supporting material
+- **Tasks** — follow-ups and actions tied to specific contacts or roles
+- **Analytics** — a view across your whole search: activity trends, network reach, pipeline health
+- **Navigator AI** — an AI assistant that reads your search activity and surfaces coaching and next steps
+
+It's self-hosted — you run it against your own database, and your data stays with you.
+
+---
+
+## Developer Guide
+
+JobTrack is a Flask + React application. The backend is a Flask REST API backed by PostgreSQL; the frontend is a React/TypeScript SPA built with Vite.
 
 ## Quick Start
 
