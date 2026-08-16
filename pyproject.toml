@@ -1,0 +1,139 @@
+[project]
+name = "jobtrack"
+version = "0.1.0"
+description = "JobTrack - a Flask-based job/application tracker"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "Flask>=2.0",
+    "Flask-Cors>=3.0",
+    "psycopg2-binary>=2.9",
+    "requests>=2.0",
+    "Pillow>=9.0",
+    "PyPDF2>=3.0",
+    "cryptography>=39.0",
+    "transformers>=4.34.0",
+    "python-dotenv>=1.0",
+    "gunicorn>=20.1",
+    "Flask-Limiter>=2.0",
+    "openpyxl"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "isort",
+    "mypy",
+    "types-requests",
+]
+tools = [
+    "pandas",
+    "numpy",
+]
+
+# Optional runtime extras. Install with `pip install .[redis]` when using
+# a Redis-backed rate limit store in production.
+redis = [
+    "redis>=4.5.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | tools
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["jobtrack"]
+known_third_party = ["flask", "psycopg2", "werkzeug"]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
+[tool.setuptools]
+# This project is an application with a single top-level module `app.py`.
+# Avoid automatic package discovery which trips on non-Python top-level
+# directories like `static`, `frontend`, `database`.
+py-modules = ["app"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --cov=. --cov-report=html --cov-report=term-missing"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "*/tests/*",
+    "*/venv/*",
+    "*/virtualenv/*",
+    "*/.venv/*",
+    "*/node_modules/*",
+    "*/tools/*",
+    "setup.py",
+    "*/migrations/*"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.mypy]
+# Exclude build artifacts and generated directories so mypy doesn't see
+# duplicate copies of modules (for example build/lib or dist outputs).
+# Also exclude the `tools-python` folder which is not a valid package name
+# and contains auxiliary scripts that should not be type-checked.
+exclude = '(^build/|^dist/|^.*\.egg-info/|^\.venv/|^venv/|^out/|^tools-python/)'
+ignore_missing_imports = true
+
+[tool.flake8]
+# Exclude common folders from flake8 analysis (tools excluded per request)
+# Add `tools-python` which contains helper scripts that are not intended for
+# linting as a package.
+exclude = "venv,.venv,node_modules,migrations,tools,scripts,tools-python"
+max-line-length = 88
+extend-ignore = "E501,W"
+# Ensure E501 (line-too-long) and all W warnings are ignored by default
+# Add both `ignore` and `extend-ignore` to be explicit for different flake8 versions
+ignore = "E501,W"
+
+[tool.ruff]
+exclude = [".venv", "venv", "node_modules", "migrations", "tools", "scripts", "build", "tools-python"]
+extend-ignore = ["E501", "W"]

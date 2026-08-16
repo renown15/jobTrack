@@ -1,0 +1,20 @@
+# Reviewed and confirmed safe for publication. One path per line.
+# Re-verify if a file changes materially.
+
+# Spec documents. Author metadata stripped 2026-08-16; contents scanned for
+# emails, phone numbers, postcodes, personal names and real organisation
+# names — all clean. Flagged only because they are Office formats.
+docs/Action Plan.rtf
+docs/Changes to the contact table.docx
+docs/Coach mode spec.docx
+docs/Coaching centre.docx
+docs/I want to create a concept of heat in the hub.docx
+docs/I want to introduce an AI assistance module to the application.docx
+docs/JobTrack UI spec.docx
+docs/LinkedIn Contact Update.docx
+docs/Navigator AI becomes Navigator Insights.docx
+docs/Navigator briefing spec.docx
+docs/Navigator briefing.docx
+docs/Networking component.rtf
+docs/New JobTrack Website landing page.docx
+docs/Updates to Navigator Insights.rtf

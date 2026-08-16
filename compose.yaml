@@ -1,0 +1,52 @@
+name: jobtrack
+
+services:
+  db:
+    image: ${DB_IMAGE:?DB_IMAGE must be set}
+    profiles:
+      - prod
+    restart: unless-stopped
+    env_file:
+      - .env.pi
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER must be set}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+      POSTGRES_DB: ${POSTGRES_DB:?POSTGRES_DB must be set}
+      NAVIGATOR_DB_NAME: ${NAVIGATOR_DB_NAME:?NAVIGATOR_DB_NAME must be set}
+    ports:
+      - "${DB_PORT:?DB_PORT must be set}:5432"
+    volumes:
+      - jobtrack_pg_data:/var/lib/postgresql/data
+      - ./docker/postgres-init/00-create-navigator-db.sh:/docker-entrypoint-initdb.d/00-create-navigator-db.sh:ro
+      - ./docker/postgres-init/01-init-main-db.sh:/docker-entrypoint-initdb.d/01-init-main-db.sh:ro
+      - ./docker/postgres-init/02-init-navigator-db.sh:/docker-entrypoint-initdb.d/02-init-navigator-db.sh:ro
+      - ./database:/seed/database:ro
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:?VITE_API_BASE_URL must be set}
+        VITE_ENABLE_CLIENT_LOGS: ${VITE_ENABLE_CLIENT_LOGS:?VITE_ENABLE_CLIENT_LOGS must be set}
+    profiles:
+      - prod
+    restart: unless-stopped
+    env_file:
+      - .env.pi
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${BACKEND_PORT:?BACKEND_PORT must be set}:8080"
+
+volumes:
+  jobtrack_pg_data:

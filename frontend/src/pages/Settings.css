@@ -1,0 +1,324 @@
+.fixed-height-56 .MuiInputBase-root {
+    height: 56px;
+}
+
+.fixed-height-56 .MuiInputBase-input,
+.fixed-height-56 textarea {
+    height: 56px;
+    box-sizing: border-box;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* Allow an expanding multiline textarea while keeping a sensible minimum height */
+.multiline-auto .MuiInputBase-root {
+    min-height: 56px;
+}
+
+.multiline-auto .MuiInputBase-input,
+.multiline-auto textarea {
+    height: auto;
+    min-height: 56px;
+    box-sizing: border-box;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.fixed-height-61 .MuiInputBase-root {
+    min-height: 61px;
+}
+
+.fixed-height-61 .MuiInputBase-input,
+.fixed-height-61 textarea {
+    min-height: 61px;
+    box-sizing: border-box;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.avatar-file {
+    display: inline-block;
+}
+
+.settings-header {
+    margin: 0;
+}
+
+.type-select {
+    min-width: 180px;
+}
+
+.value-flex {
+    flex: 1;
+}
+
+.sort-width {
+    width: 90px;
+}
+
+.add-button-center {
+    align-self: center;
+}
+
+/* Layout utilities matching MUI sx used in Settings.tsx */
+.settings-container {
+    max-width: 720px;
+    margin: 0;
+    /* keep left-aligned to match main layout */
+}
+
+/* When in briefing mode make the settings container span the viewport so
+   the briefing Paper can fill the width without overflowing offscreen. */
+.settings-container.briefing-mode {
+    /* Wider content column for briefing but left-aligned to main layout */
+    max-width: 1100px;
+    width: 100%;
+    margin: 0;
+    /* left aligned */
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.row-gap-1 {
+    display: flex;
+    gap: 8px;
+}
+
+.row-gap-1.mt-2.mb-2,
+.row-gap-1-mt2-mb2 {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.paper-p2-mb2 {
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.mb-1 {
+    margin-bottom: 8px;
+}
+
+.grid-2col-gap2 {
+    display: grid;
+    gap: 16px;
+    /* Use minmax(0, 1fr) to prevent content min-width from shrinking the other column */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    margin-top: 16px;
+}
+
+.flex-align-center-gap2 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.flex-align-center-gap1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Place the NEW button to the far right of the briefing header row */
+/* Removed: positioning handled by a flex spacer and MUI sx in the component */
+
+.avatar-56 {
+    width: 56px;
+    height: 56px;
+}
+
+.grid-col-span {
+    grid-column: 1 / -1;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.mt-2 {
+    margin-top: 16px;
+}
+
+.min-width-240 {
+    min-width: 240px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.divider-mb2 {
+    margin-bottom: 16px;
+}
+
+.grid-gap2 {
+    display: grid;
+    gap: 16px;
+}
+
+.fontWeight-700 {
+    font-weight: 700;
+}
+
+.flex-gap-1 {
+    display: flex;
+    gap: 8px;
+}
+
+.flex-gap-1-align-start {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.grid-1fr-120px-auto {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 120px auto;
+    margin-bottom: 16px;
+}
+
+.pr-10 {
+    padding-right: 80px;
+}
+
+.grid-col-1 {
+    grid-column: 1;
+}
+
+.grid-col-2 {
+    grid-column: 2;
+}
+
+.height-40 {
+    height: 40px;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.mb-2 {
+    margin-bottom: 16px;
+}
+
+.mt-1 {
+    margin-top: 8px;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.grid-gap1 {
+    display: grid;
+    gap: 8px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.width-80 {
+    width: 80px;
+}
+
+.paper-p1-mt1 {
+    padding: 8px;
+    margin-top: 8px;
+}
+
+/* Paper used for the Navigator briefing section: stretch to viewport and add padding */
+.paper-briefing {
+    box-sizing: border-box;
+    padding: 16px;
+    width: 100%;
+    /* Limit the paper so it doesn't overflow the viewport; left-align within container */
+    max-width: 1100px;
+    margin: 0;
+}
+
+/* Make the select width fit its content and add internal padding */
+.briefing-select {
+    display: inline-flex;
+    align-items: center;
+}
+
+.briefing-select .MuiInputBase-root {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.briefing-select .MuiSelect-root {
+    /* allow the select's internal value element to size naturally; width
+       is controlled by the outer TextField via `min-width` applied in React */
+    width: auto;
+}
+
+.width-90 {
+    width: 90px;
+}
+
+.type-select-160 {
+    min-width: 160px;
+}
+
+.type-select .MuiInputBase-root,
+.type-select-160 .MuiInputBase-root {
+    /* allow the select control to size itself to the selected value */
+    width: fit-content;
+    display: inline-flex;
+    min-width: 160px;
+}
+
+.nav-action-title {
+    font-weight: 700;
+    padding-bottom: 8px;
+}
+
+.type-select .MuiSelect-root,
+.type-select-160 .MuiSelect-root {
+    width: auto !important;
+}
+
+.input-sort-caption {
+    font-size: 0.85rem;
+}
+
+.sectors-grid {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 120px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.description-span {
+    grid-column: 1 / -1;
+}
+
+.fixed-height-56 {}
+
+.fixed-height-61 {}
+
+.grid-1fr-auto {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr auto;
+    margin-bottom: 16px;
+}
+
+.width-100 {
+    width: 100px;
+}
+
+.mb-3 {
+    margin-bottom: 24px;
+}

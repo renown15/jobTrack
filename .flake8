@@ -1,0 +1,7 @@
+[flake8]
+# Exclude common folders from flake8 analysis
+exclude = venv*,.venv,node_modules,migrations,tools,tools-python,scripts,build
+max-line-length = 88
+# Keep existing extend-ignore rules and explicitly ignore E501 and all W warnings
+extend-ignore = E203, W503
+ignore = E501,W

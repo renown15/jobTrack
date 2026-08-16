@@ -1,0 +1,15 @@
+{
+  "include": ["backend"],
+  "exclude": [
+    "**/venv/**",
+    "**/.venv/**",
+    "venv",
+    ".venv",
+    "**/node_modules/**",
+    "**/build/**",
+    "**/dist/**"
+  ],
+  "typeCheckingMode": "basic",
+  "reportMissingTypeStubs": false,
+  "reportMissingImports": false
+}

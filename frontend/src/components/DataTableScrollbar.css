@@ -1,0 +1,28 @@
+/* Make horizontal scrollbar visible and styled on WebKit browsers (Safari/Chrome).
+   Note: macOS system/Safari may still hide scrollbars until interaction depending on user settings.
+*/
+.data-table-scrollbar {
+  /* For Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.35) transparent;
+}
+
+/* WebKit horizontal scrollbar height */
+.data-table-scrollbar::-webkit-scrollbar {
+  height: 12px;
+}
+
+.data-table-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.data-table-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.35);
+  border-radius: 6px;
+  border: 2px solid transparent; /* give some breathing space */
+}
+
+/* Thumb hover */
+.data-table-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0,0,0,0.5);
+}
